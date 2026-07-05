@@ -1,0 +1,16 @@
+*
+!.gitignore
+!task-management-app/
+!task-management-app/**
+!user-service/
+!user-service/**
+!task-service/
+!task-service/**
+
+**/node_modules/
+**/build/
+**/target/
+**/bin/
+**/.gradle/
+**/.idea/
+**/.DS_Store
