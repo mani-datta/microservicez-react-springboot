@@ -1,7 +1,5 @@
-package com.example.demo
+package com.example.taskservice
 
-import com.example.demo.TaskNotFoundException
-import com.example.demo.UserNotFoundException
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.validation.FieldError

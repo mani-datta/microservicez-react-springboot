@@ -1,10 +1,5 @@
-package com.example.demo
+package com.example.taskservice
 
-import com.example.demo.TaskNotFoundException
-import com.example.demo.UserNotFoundException
-import com.example.demo.Task
-import com.example.demo.TaskStatus
-import com.example.demo.TaskRepository
 import org.springframework.http.HttpStatus
 import org.springframework.stereotype.Service
 import org.springframework.web.reactive.function.client.WebClient
@@ -15,11 +10,9 @@ class TaskService(
     private val taskRepository: TaskRepository,
     webClientBuilder: WebClient.Builder
 ) {
-    // Points to the User Service running on port 8080
     private val webClient: WebClient = webClientBuilder.baseUrl("http://localhost:8080").build()
 
     fun createTask(task: Task): Task {
-        // Synchronously check if the user exists
         try {
             webClient.get()
                 .uri("/users/${task.assignedUserId}")
@@ -27,7 +20,6 @@ class TaskService(
                 .toBodilessEntity()
                 .block()
         } catch (ex: Exception) {
-            // If User Service returns 404 or fails, throw our custom error
             throw UserNotFoundException("Assigned user with ID ${task.assignedUserId} does not exist or User Service is down.")
         }
 

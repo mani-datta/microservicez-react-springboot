@@ -1,4 +1,4 @@
-package com.example.demo
+package com.example.taskservice
 
 import jakarta.persistence.*
 import jakarta.validation.constraints.NotBlank
